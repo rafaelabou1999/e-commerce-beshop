@@ -2,12 +2,13 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap:330px;
+    gap:305px;
     align-items: center;
     width: 100vw;
-    background-color: rgba(8, 8, 8, 0.067);
-    color:white;
+    background-color: #023150;
+    color:#ffffffee;
     height:13.5vh;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .logo{
@@ -15,7 +16,6 @@
 }
 
 .dot{
-    color:#D10024;
 }
 
 .containerIcon{
