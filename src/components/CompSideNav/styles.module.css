@@ -3,10 +3,9 @@
     flex-direction: row;
     align-items: center;
     gap:65px;
-    padding-top: 30px;
+    padding: 25px;
     padding-left: 255px;
     border: 1px solid #ccc;
-    padding-bottom: .8%;
     box-shadow: .5px .5px .5px #f0f0f0;
 }
 

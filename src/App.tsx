@@ -1,13 +1,28 @@
-import './App.css'
-import { DataContextProvider } from './DataContextProvider'
-import { Homepage } from './pages/Homepage'
+import './root/styles.css';
+import { ProductProvider } from './context/ProductProvider';
+import { CompProduct } from './components/CompProduct/CompProduct';
+import { CompShoppingCart } from './components/CompShoppingCart/CompShoppingCart';
 
+import { CompSideNav } from './components/CompSideNav';
+import { CompHeader } from './components/CompHeader';
 function App() {
 
   return (
-    <DataContextProvider>
-      <Homepage/>
-    </DataContextProvider>
+    <ProductProvider>
+      <CompHeader />
+      <CompSideNav/>
+     <div>
+      <div className="containerHeader">
+        <CompHeader />
+        <CompSideNav />
+
+        <main>
+          <CompShoppingCart />
+          <CompProduct/>
+        </main>
+      </div>
+    </div>
+    </ProductProvider>
   )
 }
 

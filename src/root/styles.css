@@ -1,0 +1,23 @@
+:root {
+  --primary-color: #d10024;
+  --border-color: #f7f4f5;
+  --padding-center-xl: 255px;
+}
+
+main {
+  padding-left: var(--padding-center-xl);
+  padding-top: 5%;
+}
+
+.containerHeader {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 1100px) {
+  main {
+    padding-left: 0px;
+    margin: auto;
+    padding-top: 5%;
+  }
+}

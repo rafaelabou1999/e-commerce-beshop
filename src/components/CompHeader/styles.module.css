@@ -37,7 +37,7 @@
     position: absolute;
     top:-10%;
     z-index: 100;
-    background-color:#D10024;
+    background-color:var(--primary-color);
     right:7%;
     font-size: 14px;
     border-radius: 50%;
@@ -60,7 +60,7 @@
 .containerInput button{
     height:3.7vh;
     width: 5vw;
-    background-color: #D10024;
+    background-color: var(--primary-color);
     color:white;
     font-weight: 600;
     font-size: 14px;
