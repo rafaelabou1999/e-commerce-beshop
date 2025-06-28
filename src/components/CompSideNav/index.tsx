@@ -6,13 +6,9 @@ import styles from './styles.module.css';
 export const CompSideNav = () => {
     return(
             <ul className={styles.container}>
-                <li className={styles.active}>Home</li>
-                <li>Hot Deals</li>
-                <li>Categories</li>
-                <li>Laptops</li>
-                <li>Smartphones</li>
-                <li>Cameras</li>
-                <li>Accessories</li>
+                <li className={styles.active}>Hot Deals</li>
+                <li>Beauty</li>
+                <li>Fragrances</li>
             </ul>
     )
 

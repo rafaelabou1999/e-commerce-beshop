@@ -12,9 +12,18 @@
 
 .container li{
     list-style:none;
+    font-weight: 500;
 }
 
 .active{
     color:#D10024;
     border-bottom: 2px solid #D10024;
+}
+
+@media screen and (max-width:1100px) {
+    .container{
+        gap: 6%;
+        padding: 5% 0%;
+        justify-content: center;
+    }
 }

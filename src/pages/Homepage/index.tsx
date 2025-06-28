@@ -4,6 +4,7 @@ import { CompSideNav } from '../../components/CompSideNav';
 
 import styles from './styles.module.css';
 import { DataContext, type IProduct } from '../../DataContextProvider';
+import { PlusCircleIcon } from 'lucide-react';
 
 export const Homepage = () => {
    const data = React.useContext(DataContext);
@@ -19,7 +20,6 @@ export const Homepage = () => {
     <main className={styles.main}>
     {!data ?  (<p>Loading...</p>) : (
         <div className={styles.popular}>
-                <h3 className={styles.popularTitle}>Most Popular</h3>
                 <div className={styles.containerImgPopular}>
                     
                    
@@ -32,6 +32,8 @@ export const Homepage = () => {
                     <div className={styles.shape}></div>
                      <img src={product.thumbnail}/>
                      <h3 className={styles.productName}>{product.title}</h3>
+                     <h4 className={styles.productPrice}>R$ {product.price}</h4>
+                     <div className={styles.add}><PlusCircleIcon/></div>
                  </div>
                  )
                 } 
