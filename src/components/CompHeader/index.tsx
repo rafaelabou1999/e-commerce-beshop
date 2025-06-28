@@ -9,7 +9,7 @@ export const CompHeader = () => {
         <div>
             <div className={styles.container}>
                 <div>
-                    <h1>Electro<span className={styles.dot}>.</span></h1>
+                    <h1 className={styles.logo}>Electro<span className={styles.dot}>.</span></h1>
                 </div>
                
                <div className={styles.containerInput}>
