@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    gap:65px;
+    padding-top: 30px;
+    padding-left: 255px;
+    border: 1px solid #ccc;
+    padding-bottom: .8%;
+    box-shadow: .5px .5px .5px #f0f0f0;
+}
+
+.container li{
+    list-style:none;
+}
+
+.active{
+    color:#D10024;
+    border-bottom: 2px solid #D10024;
+}
