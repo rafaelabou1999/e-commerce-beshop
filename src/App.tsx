@@ -9,8 +9,6 @@ function App() {
 
   return (
     <ProductProvider>
-      <CompHeader />
-      <CompSideNav/>
      <div>
       <div className="containerHeader">
         <CompHeader />

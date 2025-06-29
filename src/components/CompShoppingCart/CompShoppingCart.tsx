@@ -1,17 +1,25 @@
+import type { IProduct } from '../../context/ProductProvider';
 import styles from './styles.module.css';
-import { useProducts } from '../../context/ProductContext';
-import type { IProduct, IProductContext } from '../../context/ProductProvider';
 
 export const CompShoppingCart = () => {
-  const { products, handleCart, loading, error } = useProducts();
   
+  const stored = localStorage.getItem('product');
+  const cartItems: IProduct[] = stored ? JSON.parse(stored) : [];
   return (
     <div className={styles.container}>
-      {products.map((product: IProduct) => {
-        return (
-          <p key={product.id}>{product.price}</p>
-        );
-      })}
+      
+        <div>
+        {cartItems.length > 0 ? (
+        cartItems.map((item, index) => (
+          <div key={index}>
+            <p>{item.title}</p>
+            <p>R$ {item.price}</p>
+          </div>
+        ))
+      ) : (  <p>No products</p>)
+          }
+        </div>
+      
     </div>
   );
 };

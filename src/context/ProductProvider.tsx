@@ -23,7 +23,7 @@ export const ProductProvider = ({children}: React.PropsWithChildren) => {
  const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
  
-   const handleCart = (product: IProduct) => {
+ const handleCart = (product: IProduct) => {
     setCart(prevCart => [...prevCart, product]);
   };
   React.useEffect(() => {
@@ -47,8 +47,6 @@ export const ProductProvider = ({children}: React.PropsWithChildren) => {
     products,
     cart,
     handleCart,
-    loading,
-    error
   };
 
   return (
