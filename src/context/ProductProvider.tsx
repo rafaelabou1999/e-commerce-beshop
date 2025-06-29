@@ -1,8 +1,12 @@
 import React from "react";
 import { ProductContext } from "./ProductContext"
 
-export type IClickCart = {
-  product: IProduct;
+export type IProductContext = {
+  products: IProduct[];
+  cart: IProduct[];
+  handleCart: (product: IProduct) => void;
+  loading: boolean;
+  error: string | null;
 }
 
 export type IProduct= {
@@ -14,26 +18,41 @@ export type IProduct= {
 };
 
 export const ProductProvider = ({children}: React.PropsWithChildren) => {
-   const [data, setData] = React.useState<IClickCart[]>([]);
-
+  const [products, setProducts] = React.useState<IProduct[]>([]);
+    const [cart, setCart] = React.useState<IProduct[]>([]);
+ const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState<string | null>(null);
  
+   const handleCart = (product: IProduct) => {
+    setCart(prevCart => [...prevCart, product]);
+  };
   React.useEffect(() => {
     async function fetchData() {
       try {
         const response = await fetch('https://dummyjson.com/products/');
         const json = await response.json();
 
-        setData(json.products);
+        setProducts(json.products);
       } catch (error) {
+        setError('Error fetching data')
         console.log("Error fetching data ", error);
+      } finally {
+        setLoading(false);
       }
     }
     fetchData();
   }, []);
   
-  
+  const value = {
+    products,
+    cart,
+    handleCart,
+    loading,
+    error
+  };
+
   return (
-    <ProductContext.Provider value={ data }>
+    <ProductContext.Provider value={value}>
         {children}
       </ProductContext.Provider>
   )

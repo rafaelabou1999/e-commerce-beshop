@@ -1,7 +1,7 @@
 import React from "react";
-import type { IClickCart } from "./ProductProvider";
+import type { IProductContext } from "./ProductProvider";
 
-export const ProductContext = React.createContext<IClickCart[]>([]);
+export const ProductContext = React.createContext<IProductContext[]>([]);
 
 export const useProducts = () => {
   const context = React.useContext(ProductContext);

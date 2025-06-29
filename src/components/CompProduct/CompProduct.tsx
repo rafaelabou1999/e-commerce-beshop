@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './styles.module.css';
 import { PlusCircleIcon } from 'lucide-react';
 import { useProducts } from '../../context/ProductContext';
-import type { IProduct } from '../../context/ProductProvider';
 
 
 //O QUE PRECISO
@@ -12,33 +11,25 @@ import type { IProduct } from '../../context/ProductProvider';
 
 
 export const CompProduct = () => {
-  const [cart, setCart] = React.useState<IProduct[]>([]);
-
-  const handleCart = (product: IProduct) => {
-    setCart((prev) => [...prev, product]);
-  };
-
-  console.log(cart);
-
-  const data = useProducts();
-  if (!data) return <div>Loading products...</div>;
+  const {products, handleCart, loading, error} = useProducts();
+  if (!products) return <div>Loading products...</div>;
 
   return (
     <div className={styles.popular}>
       <div className={styles.containerImgPopular}>
-        {data
-          .filter(product  => product.product.category === 'beauty')
+        {products
+          .filter(product  => product.category === 'beauty')
           .map( product => {
             {
               return (
-                <div className={styles.image} key={product.product.id}>
+                <div className={styles.image} key={product.id}>
                   <div className={styles.shape}></div>
-                  <img src={product.product.thumbnail} alt={product.product.title} />
-                  <h3 className={styles.productName}>{product.product.title}</h3>
-                  <h4 className={styles.productPrice}>R$ {product.product.price}</h4>
+                  <img src={product.thumbnail} alt={product.title} />
+                  <h3 className={styles.productName}>{product.title}</h3>
+                  <h4 className={styles.productPrice}>R$ {product.price}</h4>
                   <button
                     className={styles.add}
-                    onClick={() => handleCart(product.product)}
+                    onClick={() =>handleCart(product)}
                   >
                     <PlusCircleIcon />
                   </button>

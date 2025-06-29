@@ -1,21 +1,17 @@
-
 import styles from './styles.module.css';
 import { useProducts } from '../../context/ProductContext';
-import type { IClickCart } from '../../context/ProductProvider';
-
-
-//O QUE PRECISO
-//------- dados do title,price do produto
-
+import type { IProduct, IProductContext } from '../../context/ProductProvider';
 
 export const CompShoppingCart = () => {
-  const data = useProducts();
-  console.log("Context do shopping cart: " + data);
+  const { products, handleCart, loading, error } = useProducts();
+  
   return (
     <div className={styles.container}>
-      {data.map((product: IClickCart) => {
-        return <p>{ product.product.price}</p>
+      {products.map((product: IProduct) => {
+        return (
+          <p key={product.id}>{product.price}</p>
+        );
       })}
     </div>
-  )
-}
+  );
+};
