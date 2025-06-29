@@ -1,77 +1,80 @@
-.container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap:56.5%;
-    align-items: center;
-    width: 100vw;
-    color:#272525ee;
-    height:13.5vh;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 56.5%;
+  align-items: center;
+  width: 100vw;
+  color: #272525ee;
+  height: 13.5vh;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.logo{
-    font-size: 35px !important;
+.logo {
+  font-size: 35px !important;
+  color: #000;
 }
 
-.dot{
+.logoLink {
+  text-decoration: none;
 }
 
-.containerIcon{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap:8px;
-    position: relative;
+.dot {
 }
 
-
-.icons{
-    display: flex;
-    flex-direction: row;
-    gap: 42px;
+.containerIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  position: relative;
 }
 
-.notification{
-    position: absolute;
-    top:-10%;
-    z-index: 100;
-    background-color:var(--primary-color);
-    right:7%;
-    font-size: 14px;
-    border-radius: 50%;
-    padding: 1.5%;
-    width:18px;
-    height:18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    box-shadow: 1px 1px .5px #313030;
+.icons {
+  display: flex;
+  flex-direction: row;
+  gap: 42px;
 }
 
-.containerInput input{
-    width: 20vw;
-    height:3.7vh;
-    border-radius: 10px 0 0 10px;
+.notification {
+  position: absolute;
+  top: -10%;
+  z-index: 100;
+  background-color: var(--primary-color);
+  right: 7%;
+  font-size: 14px;
+  border-radius: 50%;
+  padding: 1.5%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  box-shadow: 1px 1px 0.5px #313030;
 }
 
-.containerInput button{
-    height:3.7vh;
-    width: 5vw;
-    background-color: var(--primary-color);
-    color:white;
-    font-weight: 600;
-    font-size: 14px;
-    font-family: sans-serif;
-    border-radius: 0 10px 10px 0;
-    border: 1px solid transparent;
+.containerInput input {
+  width: 20vw;
+  height: 3.7vh;
+  border-radius: 10px 0 0 10px;
 }
 
-@media screen and (max-width:1100px) {
-    .container{
-        gap:10%;
-    }
+.containerInput button {
+  height: 3.7vh;
+  width: 5vw;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: sans-serif;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid transparent;
+}
 
+@media screen and (max-width: 1100px) {
+  .container {
+    gap: 10%;
+  }
 }

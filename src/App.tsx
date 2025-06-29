@@ -1,27 +1,35 @@
 import './root/styles.css';
 import { ProductProvider } from './context/ProductProvider';
 import { CompProduct } from './components/CompProduct/CompProduct';
-import { CompShoppingCart } from './components/CompShoppingCart/CompShoppingCart';
 
 import { CompSideNav } from './components/CompSideNav';
 import { CompHeader } from './components/CompHeader';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { CartPage } from './pages/CartPage';
 function App() {
-
   return (
-    <ProductProvider>
-     <div>
-      <div className="containerHeader">
-        <CompHeader />
-        <CompSideNav />
+    <BrowserRouter>
+      <ProductProvider>
+        <div>
+          <div className="containerHeader">
+            <CompHeader />
+            <CompSideNav />
 
-        <main>
-          <CompShoppingCart />
-          <CompProduct/>
-        </main>
-      </div>
-    </div>
-    </ProductProvider>
-  )
+              <Routes>
+                <Route path="/" element={
+                <main>
+                  <CompProduct />
+                </main>
+               } />
+                <Route path="/cart" element={<CartPage />} />
+              </Routes>
+          </div>
+        </div>
+      
+        
+      </ProductProvider>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
