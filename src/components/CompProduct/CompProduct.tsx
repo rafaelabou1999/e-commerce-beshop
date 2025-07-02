@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './styles.module.css';
 import { PlusCircleIcon } from 'lucide-react';
 import { useProducts } from '../../context/ProductContext';
-import type { IProduct } from '../../context/ProductProvider';
+import type { IProduct, IProductContext } from '../../context/ProductProvider';
 
 export const CompProduct = () => {
-  const { products } = useProducts();
+  const { products }  = useProducts();
   const [cart, setCart] = React.useState<string[]>((): string[]=> {
     const storedProduct = localStorage.getItem('product');
     return storedProduct ? JSON.parse(storedProduct) : [];
@@ -14,7 +14,7 @@ export const CompProduct = () => {
   if (!products) return <div>Loading products...</div>;
 
   const handleCart = (product: IProduct) => {
-    setCart((prevCart): string[] => {
+    setCart((prevCart) => {
       const newCart = [...prevCart, product]
       localStorage.setItem("product", JSON.stringify(newCart));
       return newCart;
@@ -25,11 +25,11 @@ export const CompProduct = () => {
     <div className={styles.popular}>
       <div className={styles.containerImgPopular}>
         {products
-          .filter((product: { category: string; }) => product.category === 'beauty')
+          .filter((product:  IProduct) => product.category === 'beauty')
           .map((product) => (
             <div className={styles.image} key={product.id}>
               <div className={styles.shape}></div>
-              <img src={product.thumbnail} alt={String(product.title)} />
+              <img src={product.thumbnail} alt={String(product.title)} /> 
               <h3 className={styles.productName}>{product.title}</h3>
               <h4 className={styles.productPrice}>R$ {product.price}</h4>
               <button

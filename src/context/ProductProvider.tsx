@@ -1,15 +1,16 @@
 import React from "react";
 import { ProductContext } from "./ProductContext"
 
-export type IProductContext = {
+export interface IProductContext extends IProduct{
   products: IProduct[];
-  cart: IProduct[];
+  cart: number;
   handleCart: (product: IProduct) => void;
   loading: boolean;
   error: string | null;
 }
 
-export type IProduct= {
+
+export interface IProduct {  
     id: number;
     title: string;
     price: number;
@@ -26,6 +27,9 @@ export const ProductProvider = ({children}: React.PropsWithChildren) => {
  const handleCart = (product: IProduct) => {
     setCart(prevCart => [...prevCart, product]);
   };
+
+  console.log(typeof products);
+
   React.useEffect(() => {
     async function fetchData() {
       try {
@@ -43,7 +47,7 @@ export const ProductProvider = ({children}: React.PropsWithChildren) => {
     fetchData();
   }, []);
   
-  const value = {
+  const value: IProductContext[] = {
     products,
     cart,
     handleCart,
