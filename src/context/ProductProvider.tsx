@@ -1,9 +1,9 @@
 import React from "react";
 import { ProductContext } from "./ProductContext"
 
-export interface IProductContext extends IProduct{
+export interface IProductContext {
   products: IProduct[];
-  cart: number;
+  cart: IProduct[];
   handleCart: (product: IProduct) => void;
   loading: boolean;
   error: string | null;
@@ -16,6 +16,7 @@ export interface IProduct {
     price: number;
     thumbnail: string;
     category: string;
+    quantity: number;
 };
 
 export const ProductProvider = ({children}: React.PropsWithChildren) => {
@@ -47,14 +48,8 @@ export const ProductProvider = ({children}: React.PropsWithChildren) => {
     fetchData();
   }, []);
   
-  const value: IProductContext[] = {
-    products,
-    cart,
-    handleCart,
-  };
-
   return (
-    <ProductContext.Provider value={value}>
+    <ProductContext.Provider value={{products, cart, handleCart,loading,error}}>
         {children}
       </ProductContext.Provider>
   )

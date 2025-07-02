@@ -1,46 +1,94 @@
 import { Trash2Icon } from 'lucide-react';
 import type { IProduct } from '../../context/ProductProvider';
 import styles from './styles.module.css';
-import React, { type MouseEventHandler } from 'react';
+import React from 'react';
 
 export const CartPage = () => {
   const stored = localStorage.getItem('product');
-  const [cart, setCart] = React.useState<IProduct[]>(stored ? JSON.parse(stored) : []);
- 
-  const handleUpdate = (idToDelete: number): IProduct[] | void=> {
-    setCart(prevCart => {
-      const updatedCart = prevCart.filter((item) => idToDelete !== item.id);
-      return updatedCart;
+  const [cart, setCart] = React.useState<IProduct[]>(() => {
+    const parsed = stored ? JSON.parse(stored) : [];
+    return parsed.map((item: IProduct) => ({
+      ...item,
+      quantity: item.quantity || 1,
+    }));
+  });
+  const handleUpdate = (idToDelete: number) => {
+    setCart((prevCart) => {
+      try {
+        const safePrevCart = Array.isArray(prevCart) ? prevCart : [];
+        const updatedCart = safePrevCart.filter(
+          (item) => idToDelete !== item.id
+        );
+        return updatedCart;
+      } catch (e) {
+        console.log(e);
+        return prevCart || [];
+      }
     });
-
-  }
+  };
 
   React.useEffect(() => {
-       localStorage.setItem('product', JSON.stringify(cart));
+    localStorage.setItem('product', JSON.stringify(cart));
+  }, [cart]);
 
- }, [cart])
+  const handleAddQuantity = (itemId: number): void => {
+    setCart((prev) =>
+      prev.map((item) =>
+        item.id === itemId
+          ? {
+              ...item,
+              quantity: (item.quantity || 1) + 1,
+            }
+          : item
+      )
+    );
+  };
+  const handleRemoveQuantity = (item: IProduct, itemId: number): void => {
+    setCart((prev) =>
+      prev.map((item) =>
+        item.id === itemId
+          ? {
+              ...item,
+              quantity: (item.quantity || 1) - 1,
+            }
+          : item
+      )
+    );
+  };
   return (
     <div className={styles.container}>
       <div>
         {cart.length > 0 ? (
           cart.map((item, index) => (
-            <div  className={styles.all} key={`${item.id}-${index}`}>
-              <div className={`${styles.product}` }>
+            <div className={styles.all} key={`${item.id}-${index}`}>
+              <div className={`${styles.product}`}>
                 <div>
                   <p>{item.title}</p>
-                  <p>R$ {item.price}</p>
+                  <p>R$ {item.price * item.quantity}</p>
                 </div>
 
                 <div className={styles.containerQuantity}>
-                  <button className={styles.minus}>-</button>
-                  <p className={styles.quantity}>1</p>
-                  <button className={styles.plus}>+</button>
+                  <button
+                    className={styles.minus}
+                    onClick={() => handleRemoveQuantity(item, item.id)}
+                  >
+                    -
+                  </button>
+                  <p className={styles.quantity}>{item.quantity}</p>
+                  <button
+                    className={styles.plus}
+                    onClick={() => handleAddQuantity(item.id)}
+                  >
+                    +
+                  </button>
                 </div>
-                <div className={styles.trashIcon} onClick={() => handleUpdate(item.id)}>
+                <div
+                  className={styles.trashIcon}
+                  onClick={() => handleUpdate(item.id)}
+                >
                   <Trash2Icon />
+                </div>
               </div>
-              </div>
-              
             </div>
           ))
         ) : (

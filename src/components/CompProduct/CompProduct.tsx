@@ -2,31 +2,34 @@ import React from 'react';
 import styles from './styles.module.css';
 import { PlusCircleIcon } from 'lucide-react';
 import { useProducts } from '../../context/ProductContext';
-import type { IProduct, IProductContext } from '../../context/ProductProvider';
+import type { IProduct } from '../../context/ProductProvider';
 
 export const CompProduct = () => {
-  const { products }  = useProducts();
-  const [cart, setCart] = React.useState<string[]>((): string[]=> {
+  
+  const [cart, setCart] = React.useState<IProduct[]>(() => {
     const storedProduct = localStorage.getItem('product');
     return storedProduct ? JSON.parse(storedProduct) : [];
   });
   
+  React.useEffect(() => {
+     localStorage.setItem("product", JSON.stringify(cart));
+  }, [cart])
+
+  const { products }  = useProducts();
   if (!products) return <div>Loading products...</div>;
 
+  
   const handleCart = (product: IProduct) => {
-    setCart((prevCart) => {
-      const newCart = [...prevCart, product]
-      localStorage.setItem("product", JSON.stringify(newCart));
-      return newCart;
-    })
+    setCart(prev => [...prev, product])
   };
 
+  
   return (
     <div className={styles.popular}>
       <div className={styles.containerImgPopular}>
         {products
           .filter((product:  IProduct) => product.category === 'beauty')
-          .map((product) => (
+          .map((product: IProduct) => (
             <div className={styles.image} key={product.id}>
               <div className={styles.shape}></div>
               <img src={product.thumbnail} alt={String(product.title)} /> 
