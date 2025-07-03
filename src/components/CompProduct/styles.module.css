@@ -35,3 +35,11 @@
   padding-top: 2%;
   color: rgba(173, 35, 35, 0.952);
 }
+
+.myToast {
+  background-color: var(--border-color);
+}
+
+.myProgress {
+  background-color: #00ffbf !important;
+}

@@ -31,13 +31,14 @@ export const CompProduct = () => {
   onClick={() => {
     handleCart(product);
     toast.success(`Product added to cart!`, {
+      className: styles.myToast,
       position: 'top-right',
       autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
+      
     });
   }}
 >
