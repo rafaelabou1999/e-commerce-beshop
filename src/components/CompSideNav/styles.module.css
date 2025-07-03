@@ -15,8 +15,8 @@
 }
 
 .active {
-  color: #d10024;
-  border-bottom: 2px solid #d10024;
+  color: #b1011e;
+  border-bottom: 2px solid #b1011e;
 }
 
 @media screen and (max-width: 1100px) {
