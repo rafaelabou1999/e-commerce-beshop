@@ -3,10 +3,10 @@ import styles from './styles.module.css';
 import { PlusCircleIcon } from 'lucide-react';
 import { useProducts } from '../../context/ProductContext';
 import type { IProduct } from '../../context/ProductProvider';
+import {  toast } from 'react-toastify';
 
 export const CompProduct = () => {
   const {products, cart, handleCart,loading,error,setCart} = useProducts();
-  
   React.useEffect(() => {
      localStorage.setItem("product", JSON.stringify(cart));
   }, [cart])
@@ -22,13 +22,25 @@ export const CompProduct = () => {
           .map((product: IProduct) => (
             <div className={styles.image} key={product.id}>
               <div className={styles.shape}></div>
-              <img src={product.thumbnail} alt={String(product.title)} /> 
+              <img className={styles.thumbnail} src={product.thumbnail} alt={String(product.title)} /> 
               <h3 className={styles.productName}>{product.title}</h3>
               <h4 className={styles.productPrice}>R$ {product.price}</h4>
+             
               <button
-                className={styles.add}
-                onClick={() => handleCart(product)}
-              >
+  className={styles.add}
+  onClick={() => {
+    handleCart(product);
+    toast.success(`Product added to cart!`, {
+      position: 'top-right',
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }}
+>
                 <PlusCircleIcon />
               </button>
             </div>

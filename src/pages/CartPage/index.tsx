@@ -63,7 +63,8 @@ export const CartPage = () => {
                     <p>{item.title}</p>
                     <p>R$ {(item.price * item.quantity).toFixed(2)}</p>
                   </div>
-
+                  <div className={styles.rightPart}>
+                    
                   <div className={styles.containerQuantity}>
                     <button
                       className={styles.minus}
@@ -85,6 +86,7 @@ export const CartPage = () => {
                   >
                     <Trash2Icon />
                   </div>
+</div>
                 </div>
               </div>
             ) : null

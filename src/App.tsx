@@ -1,7 +1,7 @@
 import './root/styles.css';
 import { ProductProvider } from './context/ProductProvider';
 import { CompProduct } from './components/CompProduct/CompProduct';
-
+import { ToastContainer } from 'react-toastify';
 import { CompSideNav } from './components/CompSideNav';
 import { CompHeader } from './components/CompHeader';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -14,7 +14,7 @@ function App() {
           <div className="containerHeader">
             <CompHeader />
             <CompSideNav />
-
+            <ToastContainer/>
               <Routes>
                 <Route path="/" element={
                 <main>

@@ -21,7 +21,6 @@ export const CompHeader = () => {
             aria-label="Wishlist"
           >
             <HeartIcon className={styles.icon} />
-            <span>Wishlist</span>
             <span className={styles.notification}>2</span>
           </button>
           
@@ -31,7 +30,7 @@ export const CompHeader = () => {
             aria-label="Your cart"
           >
             <ShoppingCartIcon className={styles.icon} />
-            <span>Your cart</span>
+         
           </button>
         </nav>
       </div>
