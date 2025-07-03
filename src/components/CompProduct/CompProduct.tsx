@@ -5,25 +5,15 @@ import { useProducts } from '../../context/ProductContext';
 import type { IProduct } from '../../context/ProductProvider';
 
 export const CompProduct = () => {
-  
-  const [cart, setCart] = React.useState<IProduct[]>(() => {
-    const storedProduct = localStorage.getItem('product');
-    return storedProduct ? JSON.parse(storedProduct) : [];
-  });
+  const {products, cart, handleCart,loading,error,setCart} = useProducts();
   
   React.useEffect(() => {
      localStorage.setItem("product", JSON.stringify(cart));
   }, [cart])
-
-  const { products }  = useProducts();
   if (!products) return <div>Loading products...</div>;
 
-  
-  const handleCart = (product: IProduct) => {
-    setCart(prev => [...prev, product])
-  };
 
-  
+
   return (
     <div className={styles.popular}>
       <div className={styles.containerImgPopular}>
