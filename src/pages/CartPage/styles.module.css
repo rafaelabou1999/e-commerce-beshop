@@ -96,9 +96,13 @@
   }
 }
 @media screen and (max-width: 650px) {
+  .container {
+    padding-top: 10%;
+  }
+
   .product {
-    width: 98vw;
-    margin-left: 1.5%;
+    width: 90vw;
+    margin-left: 2%;
   }
 
   .productName {

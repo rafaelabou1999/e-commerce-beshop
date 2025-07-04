@@ -23,7 +23,7 @@ export const CompProduct = () => {
               <div className={styles.shape}></div>
               <img className={styles.thumbnail} src={product.thumbnail} alt={String(product.title)} /> 
               <h3 className={styles.productName}>{product.title}</h3>
-              <h4 className={styles.productPrice}>R$ {product.price}</h4>
+              <h4 className={styles.productPrice}>$ {product.price}</h4>
              
               <button
   className={styles.add}
