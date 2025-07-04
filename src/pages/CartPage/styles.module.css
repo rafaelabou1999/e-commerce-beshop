@@ -8,6 +8,7 @@
 .container {
   margin: auto;
   padding-top: 4%;
+  position: relative;
 }
 
 .product {
@@ -50,10 +51,12 @@
   font-weight: 600;
   font-size: 15px;
   border-radius: 1px;
+  cursor: pointer;
 }
 
 .minus {
   padding-bottom: 3px;
+  cursor: pointer;
 }
 
 .trashIcon {
@@ -66,6 +69,7 @@
   opacity: 0.85;
   color: rgb(29, 28, 28);
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .hidden {
@@ -74,4 +78,29 @@
 
 .display {
   display: 'block';
+}
+
+.total {
+  background-color: #f8f7f7bb;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  position: absolute;
+  bottom: -50%;
+  right: 0%;
+  font-weight: 500;
+  padding: 1% 2%;
+}
+@media screen and (max-width: 1400px) {
+  .product {
+    width: max(50vw, 500px);
+  }
+}
+@media screen and (max-width: 650px) {
+  .product {
+    width: 90vw;
+  }
+
+  .productName {
+    width: 80%;
+  }
 }

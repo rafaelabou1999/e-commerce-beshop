@@ -51,16 +51,24 @@ export const CartPage = () => {
     );
   };
 
+  
+  const total = React.useMemo(():number=> {
+
+    return cart.reduce((acc, item) =>
+      acc + item.price * (item.quantity || 1), 0)
+      
+  },[cart])
   return (
     <div className={styles.container}>
       <div>
         {cart.length > 0 ? (
           cart.map((item, index) =>
             item.quantity > 0 ? (
+              
               <div className={styles.all} key={`${item.id}-${index}`}>
                 <div className={`${styles.product}`}>
                   <div>
-                    <p>{item.title}</p>
+                    <p className={styles.productName}>{item.title}</p>
                     <p>R$ {(item.price * item.quantity).toFixed(2)}</p>
                   </div>
                   <div className={styles.rightPart}>
@@ -86,8 +94,12 @@ export const CartPage = () => {
                   >
                     <Trash2Icon />
                   </div>
-</div>
+                  </div>  
+                  
                 </div>
+                <div>
+                  </div>
+                    <h3 className={styles.total}>Total: {total.toFixed(2)}</h3>
               </div>
             ) : null
           )
