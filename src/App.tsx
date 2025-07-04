@@ -14,7 +14,6 @@ function App() {
         <div>
           <div className="containerHeader">
             <CompHeader />
-            <CompSideNav />
             <ToastContainer/>
               <Routes>
                 <Route path="/" element={

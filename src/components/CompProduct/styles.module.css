@@ -3,6 +3,9 @@
   grid-template-columns: repeat(5, calc(70% / 4));
   width: 73vw;
   height: 40vh;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   gap: 50px;
 }
 
@@ -72,6 +75,7 @@
     grid-template-rows: repeat(2, 48vh);
     width: 80vw;
     height: 45vh;
+    transform: translateX(-40%);
   }
 }
 @media screen and (max-width: 1100px) {
@@ -92,7 +96,7 @@
     position: absolute;
     left: 50%;
     height: 56vh;
-    transform: translateX(-50%);
+    transform: translateX(-55%);
     grid-template-columns: repeat(2, calc(100% / 2));
     grid-template-rows: repeat(3, 50vh);
   }
