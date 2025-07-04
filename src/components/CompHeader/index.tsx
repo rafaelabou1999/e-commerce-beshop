@@ -1,6 +1,6 @@
-import React from 'react';
+
 import styles from './styles.module.css';
-import { HeartIcon, ShoppingCartIcon } from 'lucide-react';
+import {  ShoppingCartIcon } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 
 export const CompHeader = () => {

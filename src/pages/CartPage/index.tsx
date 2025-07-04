@@ -1,11 +1,10 @@
 import { Trash2Icon } from 'lucide-react';
-import type { IProduct } from '../../context/ProductProvider';
 import styles from './styles.module.css';
 import React from 'react';
 import { useProducts } from '../../context/ProductContext';
 
 export const CartPage = () => {
-  const { products, cart, handleCart, loading, error, setCart } = useProducts();
+  const { cart, setCart } = useProducts();
     const handleUpdate = (idToDelete: number) => {
     setCart((prevCart) => {
       try {
@@ -38,7 +37,7 @@ export const CartPage = () => {
     );
   };
 
-  const handleRemoveQuantity = (item: IProduct, itemId: number): void => {
+  const handleRemoveQuantity = ( itemId: number): void => {
     setCart((prev) =>
       prev.map((item) =>
         item.id === itemId
@@ -76,7 +75,7 @@ export const CartPage = () => {
                   <div className={styles.containerQuantity}>
                     <button
                       className={styles.minus}
-                      onClick={() => handleRemoveQuantity(item, item.id)}
+                      onClick={() => handleRemoveQuantity( item.id)}
                     >
                       -
                     </button>

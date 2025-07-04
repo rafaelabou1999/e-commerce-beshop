@@ -103,4 +103,8 @@
   .productName {
     width: 80%;
   }
+
+  .total {
+    margin-right: 10px;
+  }
 }
