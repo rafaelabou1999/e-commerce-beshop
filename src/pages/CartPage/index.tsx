@@ -98,7 +98,7 @@ export const CartPage = () => {
                 </div>
                 <div>
                   </div>
-                    <h3 className={styles.total}>Total: {total.toFixed(2)}</h3>
+                <h3 className={styles.total}>Total: {total.toFixed(2)}</h3>
               </div>
             ) : null
           )

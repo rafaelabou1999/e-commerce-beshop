@@ -97,7 +97,8 @@
 }
 @media screen and (max-width: 650px) {
   .product {
-    width: 90vw;
+    width: 98vw;
+    margin-left: 1.5%;
   }
 
   .productName {
@@ -105,6 +106,7 @@
   }
 
   .total {
-    margin-right: 10px;
+    bottom: -30%;
+    margin-right: 5px;
   }
 }

@@ -2,7 +2,7 @@
   --primary-color: #d10024;
   --border-color: #f7f4f5;
   --padding-center-xl: 255px;
-  --toastify-color-success: #9cbda0;
+  --toastify-color-success: #a1a1a1;
 }
 
 main {
@@ -20,5 +20,11 @@ main {
     padding-left: 0px;
     margin: auto;
     padding-top: 5%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  main {
+    padding-top: 8%;
   }
 }

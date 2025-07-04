@@ -1,0 +1,30 @@
+footer {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1%;
+}
+
+@media screen and (max-width: 1400px) {
+  footer {
+    bottom: -60%;
+    padding: 2%;
+  }
+}
+@media screen and (max-width: 750px) {
+  footer {
+    text-align: center;
+    width: 100%;
+    bottom: -120%;
+    padding: 2%;
+  }
+}
+@media screen and (max-width: 550px) {
+  footer {
+    text-align: center;
+    width: 100%;
+    bottom: -210%;
+    padding: 2%;
+  }
+}

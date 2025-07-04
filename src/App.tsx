@@ -6,6 +6,7 @@ import { CompSideNav } from './components/CompSideNav';
 import { CompHeader } from './components/CompHeader';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CartPage } from './pages/CartPage';
+import { CompFooter } from './components/CompFooter';
 function App() {
   return (
     <BrowserRouter>
@@ -19,14 +20,18 @@ function App() {
                 <Route path="/" element={
                 <main>
                   <CompProduct />
+                  <div className="footer">
+                    <CompFooter/>
+                  </div>
                 </main>
                } />
-                <Route path="/cart" element={<CartPage />} />
-              </Routes>
+              <Route path="/cart" element={<CartPage />} />
+              
+            </Routes>
+
           </div>
         </div>
       
-        
       </ProductProvider>
     </BrowserRouter>
   );
