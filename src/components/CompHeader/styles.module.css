@@ -95,4 +95,9 @@
   .container {
     gap: 10%;
   }
+
+  .iconButton {
+    width: 14vw;
+    height: 6vh;
+  }
 }

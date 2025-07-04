@@ -1,6 +1,6 @@
 .containerImgPopular {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(5, calc(70% / 4));
   width: 73vw;
   height: 40vh;
   gap: 50px;
@@ -19,7 +19,7 @@
 
 .add {
   color: #f8f7f7bb;
-  background-color: var(--primary-color);
+  background-color: #ee163a;
   border: 1px solid #a1a1a17a;
   position: absolute;
   bottom: 5%;
@@ -43,6 +43,7 @@
   text-align: left;
   color: #181818f1;
   margin-top: 5%;
+  padding: 2% 5%;
 }
 .productPrice {
   padding-top: 2%;
@@ -62,4 +63,88 @@
 
 .myProgress {
   background-color: #00ffbf !important;
+}
+
+@media screen and (max-width: 1400px) {
+  .containerImgPopular {
+    display: grid;
+    grid-template-columns: repeat(3, calc(70% / 3));
+    grid-template-rows: repeat(2, 48vh);
+    width: 80vw;
+    height: 45vh;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .containerImgPopular {
+    width: 100vw;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-40%);
+  }
+
+  .productName {
+    padding: 2% 5%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .containerImgPopular {
+    width: 70vw;
+    position: absolute;
+    left: 50%;
+    height: 56vh;
+    transform: translateX(-50%);
+    grid-template-columns: repeat(2, calc(100% / 2));
+    grid-template-rows: repeat(3, 50vh);
+  }
+
+  .productName {
+    padding: 2% 5%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .containerImgPopular {
+    width: 55vw;
+    position: absolute;
+    left: 50%;
+    height: 52vh;
+    transform: translateX(-50%);
+    grid-template-columns: repeat(1, calc(100% / 1));
+    grid-template-rows: repeat(5, 48vh);
+  }
+
+  .productName {
+    padding: 2% 5%;
+  }
+
+  .image img {
+    height: 250px;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .containerImgPopular {
+    width: 80vw;
+    position: absolute;
+    left: 50%;
+    height: 52vh;
+    transform: translateX(-50%);
+    grid-template-columns: repeat(1, calc(100% / 1));
+    grid-template-rows: repeat(5, min(46vh, 400px));
+  }
+
+  .productName {
+    padding: 2% 5%;
+  }
+
+  .image img {
+    height: 210px;
+    object-fit: contain;
+  }
+
+  .add {
+    width: 34px;
+    height: 34px;
+    padding-bottom: 1% !important;
+  }
 }

@@ -16,13 +16,7 @@ export const CompHeader = () => {
         </Link>
 
         <nav className={styles.navIcons}>
-          <button 
-            className={styles.iconButton}
-            aria-label="Wishlist"
-          >
-            <HeartIcon className={styles.icon} />
-            <span className={styles.notification}>2</span>
-          </button>
+        
           
           <button 
             className={styles.iconButton}
