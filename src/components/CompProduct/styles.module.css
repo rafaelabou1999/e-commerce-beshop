@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(5, calc(70% / 4));
   width: 73vw;
-  height: 40vh;
+  height: 45vh;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
