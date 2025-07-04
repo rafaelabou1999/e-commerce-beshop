@@ -1,6 +1,5 @@
-
 import styles from './styles.module.css';
-import {  ShoppingCartIcon } from 'lucide-react';
+import { ShoppingCartIcon } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 
 export const CompHeader = () => {
@@ -16,15 +15,12 @@ export const CompHeader = () => {
         </Link>
 
         <nav className={styles.navIcons}>
-        
-          
-          <button 
+          <button
             className={styles.iconButton}
             onClick={() => navigate('/cart')}
             aria-label="Your cart"
           >
             <ShoppingCartIcon className={styles.icon} />
-         
           </button>
         </nav>
       </div>

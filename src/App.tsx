@@ -13,23 +13,23 @@ function App() {
         <div>
           <div className="containerHeader">
             <CompHeader />
-            <ToastContainer/>
-              <Routes>
-                <Route path="/" element={
-                <main>
-                  <CompProduct />
-                  <div className="footer">
-                    <CompFooter/>
-                  </div>
-                </main>
-               } />
+            <ToastContainer />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <main>
+                    <CompProduct />
+                    <div className="footer">
+                      <CompFooter />
+                    </div>
+                  </main>
+                }
+              />
               <Route path="/cart" element={<CartPage />} />
-              
             </Routes>
-
           </div>
         </div>
-      
       </ProductProvider>
     </BrowserRouter>
   );

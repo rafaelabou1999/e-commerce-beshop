@@ -1,5 +1,5 @@
-import React from "react";
-import { ProductContext } from "./ProductContext"
+import React from 'react';
+import { ProductContext } from './ProductContext';
 
 export interface IProductContext {
   products: IProduct[];
@@ -10,18 +10,17 @@ export interface IProductContext {
   setCart: React.Dispatch<React.SetStateAction<IProduct[]>>;
 }
 
-
-export interface IProduct {  
-    id: number;
-    title: string;
-    price: number;
-    thumbnail: string;
-    category: string;
-    quantity: number;
-};
+export interface IProduct {
+  id: number;
+  title: string;
+  price: number;
+  thumbnail: string;
+  category: string;
+  quantity: number;
+}
 
 export const ProductProvider = ({ children }: React.PropsWithChildren) => {
-    const stored = localStorage.getItem('product');
+  const stored = localStorage.getItem('product');
 
   const [products, setProducts] = React.useState<IProduct[]>([]);
   const [cart, setCart] = React.useState<IProduct[]>(() => {
@@ -31,29 +30,31 @@ export const ProductProvider = ({ children }: React.PropsWithChildren) => {
       quantity: item.quantity || 1,
     }));
   });
- const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
- 
- const handleCart = (product: IProduct) => {
-   setCart((prevCart: IProduct[]) => {
-        try {
-          const exist = prevCart.find((item) => item.id === product.id);
 
-          if (exist) {
-           return prevCart.map((item) => 
-              item.id === product.id ? {
-                ...item,
-                quantity: (item.quantity || 1) + 1,
-            } : item
-            )
-          } else {
-            return [...prevCart, {...product, quantity: 1}]
-      }
-        } catch (e) {
-          console.log(e);
-          return prevCart || [];
+  const handleCart = (product: IProduct) => {
+    setCart((prevCart: IProduct[]) => {
+      try {
+        const exist = prevCart.find((item) => item.id === product.id);
+
+        if (exist) {
+          return prevCart.map((item) =>
+            item.id === product.id
+              ? {
+                  ...item,
+                  quantity: (item.quantity || 1) + 1,
+                }
+              : item
+          );
+        } else {
+          return [...prevCart, { ...product, quantity: 1 }];
         }
-      });
+      } catch (e) {
+        console.log(e);
+        return prevCart || [];
+      }
+    });
   };
 
   console.log(typeof products);
@@ -66,18 +67,20 @@ export const ProductProvider = ({ children }: React.PropsWithChildren) => {
 
         setProducts(json.products);
       } catch (error) {
-        setError('Error fetching data')
-        console.log("Error fetching data ", error);
+        setError('Error fetching data');
+        console.log('Error fetching data ', error);
       } finally {
         setLoading(false);
       }
     }
     fetchData();
   }, []);
-  
+
   return (
-    <ProductContext.Provider value={{products, cart, handleCart,loading,error, setCart}}>
-        {children}
-      </ProductContext.Provider>
-  )
-}
+    <ProductContext.Provider
+      value={{ products, cart, handleCart, loading, error, setCart }}
+    >
+      {children}
+    </ProductContext.Provider>
+  );
+};

@@ -68,6 +68,13 @@
   background-color: #00ffbf !important;
 }
 
+@media screen and (max-width: 1600px) {
+  .containerImgPopular {
+    width: 85vw;
+    height: 42vh;
+  }
+}
+
 @media screen and (max-width: 1400px) {
   .containerImgPopular {
     display: grid;
