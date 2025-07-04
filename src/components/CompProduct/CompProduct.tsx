@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.module.css';
-import { PlusCircleIcon } from 'lucide-react';
+import { PlusCircleIcon, PlusSquareIcon } from 'lucide-react';
 import { useProducts } from '../../context/ProductContext';
 import type { IProduct } from '../../context/ProductProvider';
 import {  toast } from 'react-toastify';
@@ -42,7 +42,7 @@ export const CompProduct = () => {
     });
   }}
 >
-                <PlusCircleIcon />
+                +
               </button>
             </div>
           ))}
