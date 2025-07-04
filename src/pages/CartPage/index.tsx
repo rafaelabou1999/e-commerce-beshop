@@ -68,7 +68,7 @@ export const CartPage = () => {
                 <div className={`${styles.product}`}>
                   <div>
                     <p className={styles.productName}>{item.title}</p>
-                    <p>R$ {(item.price * item.quantity).toFixed(2)}</p>
+                    <p>$ {(item.price * item.quantity).toFixed(2)}</p>
                   </div>
                   <div className={styles.rightPart}>
                     
@@ -98,7 +98,7 @@ export const CartPage = () => {
                 </div>
                 <div>
                   </div>
-                <h3 className={styles.total}>Total: {total.toFixed(2)}</h3>
+                <h3 className={styles.total}>Total: $ {total.toFixed(2)}</h3>
               </div>
             ) : null
           )
