@@ -71,7 +71,7 @@
 @media screen and (max-width: 1600px) {
   .containerImgPopular {
     width: 85vw;
-    height: 42vh;
+    height: 43vh;
   }
 }
 
@@ -157,5 +157,11 @@
     width: 34px;
     height: 34px;
     padding-bottom: 1% !important;
+  }
+}
+
+@media screen and (max-width: 1800px) and (max-height: 810px) {
+  .containerImgPopular {
+    height: 49vh;
   }
 }

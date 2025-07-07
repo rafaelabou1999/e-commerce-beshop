@@ -5,14 +5,12 @@ import { useProducts } from '../../context/ProductContext';
 
 export const CartPage = () => {
   const { cart, setCart } = useProducts();
+
   const handleUpdate = (idToDelete: number) => {
     setCart((prevCart) => {
       try {
         const safePrevCart = Array.isArray(prevCart) ? prevCart : [];
-        const updatedCart = safePrevCart.filter(
-          (item) => idToDelete !== item.id
-        );
-        return updatedCart;
+        return safePrevCart.filter((item) => idToDelete !== item.id);
       } catch (e) {
         console.log(e);
         return prevCart || [];
@@ -24,38 +22,33 @@ export const CartPage = () => {
     localStorage.setItem('product', JSON.stringify(cart));
   }, [cart]);
 
-  const handleAddQuantity = (itemId: number): void => {
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === itemId
-          ? {
-              ...item,
-              quantity: (item.quantity || 1) + 1,
-            }
-          : item
-      )
-    );
-  };
-
-  const handleRemoveQuantity = (itemId: number): void => {
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === itemId
-          ? {
-              ...item,
-              quantity: (item.quantity || 1) - 1,
-            }
-          : item
-      )
-    );
-  };
-
   const total = React.useMemo((): number => {
     return cart.reduce(
       (acc, item) => acc + item.price * (item.quantity || 1),
       0
     );
   }, [cart]);
+
+  const handleQuantity = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    itemId: number
+  ) => {
+    const btn = e.currentTarget;
+    const isPlus = btn.classList.contains('plus');
+
+    setCart((prev) => {
+      const updatedCart = prev.map((item) => {
+        if (item.id === itemId) {
+          const newQuantity = Math.max((item.quantity ?? 1) + (isPlus ? 1 : -1), 0);
+          return { ...item, quantity: newQuantity };
+        }
+        return item;
+      });
+
+      return updatedCart.filter((item) => item.quantity > 0);
+    });
+  };
+
   return (
     <div className={styles.container}>
       <div>
@@ -73,15 +66,15 @@ export const CartPage = () => {
                   <div className={styles.rightPart}>
                     <div className={styles.containerQuantity}>
                       <button
-                        className={styles.minus}
-                        onClick={() => handleRemoveQuantity(item.id)}
+                        className={`${styles.minus} minus`}
+                        onClick={(e) => handleQuantity(e, item.id)}
                       >
                         -
                       </button>
                       <p className={styles.quantity}>{item.quantity}</p>
                       <button
-                        className={styles.plus}
-                        onClick={() => handleAddQuantity(item.id)}
+                        className={`${styles.plus} plus`}
+                        onClick={(e) => handleQuantity(e, item.id)}
                       >
                         +
                       </button>
@@ -94,10 +87,10 @@ export const CartPage = () => {
                     </div>
                   </div>
                 </div>
-                <div></div>
                 <div className={styles.totalContainer}>
-                  <h2 className={styles.totalText}>Total:</h2>
-                  <h3 className={styles.total}>$ {total.toFixed(2)}</h3>
+                  <h3 className={styles.total}>
+                    <span className={styles.totalText}>Total:</span> ${total.toFixed(2)}
+                  </h3>
                 </div>
               </div>
             ) : null
