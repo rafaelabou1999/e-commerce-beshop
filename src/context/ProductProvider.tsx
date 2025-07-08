@@ -11,6 +11,9 @@ export interface IProductContext {
 }
 
 export interface IProduct {
+  tags: ReactNode;
+  description: ReactNode;
+  images: string | undefined;
   id: number;
   title: string;
   price: number;

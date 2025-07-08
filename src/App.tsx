@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import { CompHeader } from './components/CompHeader';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CartPage } from './pages/CartPage';
+import { DescPage } from './pages/DescPage';
 import { CompFooter } from './components/CompFooter';
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
                 }
               />
               <Route path="/cart" element={<CartPage />} />
+              <Route path="/description/:itemTitle" element={<DescPage/>} />
             </Routes>
           </div>
         </div>
