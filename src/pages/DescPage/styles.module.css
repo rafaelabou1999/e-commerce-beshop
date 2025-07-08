@@ -48,6 +48,15 @@
   cursor: pointer;
 }
 
+.back {
+  position: absolute;
+  bottom: -30%;
+  left: 50%;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
 @media screen and (max-width: 1400px) {
   .container {
     left: 45%;
@@ -91,6 +100,11 @@
     position: absolute;
     bottom: -200px;
   }
+
+  .back {
+    bottom: -120%;
+    left: 50%;
+  }
 }
 
 @media screen and (max-width: 530px) {
@@ -99,7 +113,7 @@
   }
 
   .btn {
-    right: 43%;
+    right: 42%;
     width: 60%;
   }
 
@@ -115,5 +129,10 @@
 
   .tags {
     width: 150%;
+  }
+
+  .back {
+    bottom: -130%;
+    left: 60%;
   }
 }

@@ -1,14 +1,18 @@
 import styles from './styles.module.css';
 
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useProducts } from '../../context/ProductContext';
 import { toast } from 'react-toastify';
+import { ArrowLeftCircle } from 'lucide-react';
 
 export const DescPage = () => {
   const { products, handleCart } = useProducts();
   const { itemTitle } = useParams();
-  console.log(products);
+  const navigate = useNavigate();
 
+  const handleHome = () => {
+    navigate('/');
+  }
   return (
     <div>
       {products
@@ -49,6 +53,7 @@ export const DescPage = () => {
                 </p>
               </div>
             </div>
+            <button className={styles.back} onClick={handleHome}><ArrowLeftCircle size={33} /></button>
           </div>
         ))}
     </div>
