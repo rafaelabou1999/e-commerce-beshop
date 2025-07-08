@@ -105,10 +105,15 @@
 
   .container {
     left: 38%;
+    top: 7%;
   }
 
   .right,
   .desc {
     width: 120% !important;
+  }
+
+  .tags {
+    width: 150%;
   }
 }

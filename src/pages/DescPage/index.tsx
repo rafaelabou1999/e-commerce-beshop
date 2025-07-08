@@ -44,8 +44,8 @@ export const DescPage = () => {
               <div className={styles.more}>
                 <h4 className={styles.price}>$ {product.price}</h4>
                 <p className={styles.tags}>
-                  <span className={styles.tag}>#{product.tags[0]}</span>{' '}
-                  <span className={styles.tag}>#{product.tags[1]}</span>
+                  <span className={styles.tag}>#{product.tags[0]}</span> <span className={styles.tag}>#{product.tags[1]}</span>
+                 
                 </p>
               </div>
             </div>
