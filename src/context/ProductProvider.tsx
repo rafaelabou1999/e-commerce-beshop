@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { type ReactNode } from 'react';
 import { ProductContext } from './ProductContext';
 
 export interface IProductContext {
@@ -11,7 +11,7 @@ export interface IProductContext {
 }
 
 export interface IProduct {
-  tags: ReactNode;
+  tags: ReactNode[];
   description: ReactNode;
   images: string | undefined;
   id: number;
