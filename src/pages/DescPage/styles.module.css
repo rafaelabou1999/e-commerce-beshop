@@ -46,3 +46,68 @@
   text-transform: uppercase;
   letter-spacing: 0.025em;
 }
+
+@media screen and (max-width: 1400px) {
+  .container {
+    left: 45%;
+  }
+
+  .right,
+  .desc {
+    width: 130% !important;
+  }
+
+  .more {
+    right: -20%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+    left: 47%;
+  }
+
+  .image {
+    display: none;
+  }
+
+  .right,
+  .desc {
+    width: 100% !important;
+  }
+
+  .more {
+    right: 70%;
+    bottom: -100px;
+  }
+
+  .price {
+    text-align: start;
+  }
+
+  .btn {
+    position: absolute;
+    bottom: -200px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .more {
+    right: 60%;
+  }
+
+  .btn {
+    right: 43%;
+    width: 60%;
+  }
+
+  .container {
+    left: 38%;
+  }
+
+  .right,
+  .desc {
+    width: 120% !important;
+  }
+}
