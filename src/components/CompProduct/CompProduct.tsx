@@ -23,7 +23,7 @@ export const CompProduct = () => {
         {products
           .filter((product: IProduct) => product.category === 'beauty')
           .map((product: IProduct) => (
-            <div className={styles.image} key={product.id} onClick={() => handleNavigation(product.title)}>
+            <div className={styles.image} key={product.id} >
               <div className={styles.shape}></div>
               <img
                 className={styles.thumbnail}
@@ -35,18 +35,7 @@ export const CompProduct = () => {
 
               <button
                 className={styles.add}
-                onClick={() => {
-                  handleCart(product);
-                  toast.success(`Product added to cart!`, {
-                    className: styles.myToast,
-                    position: 'top-right',
-                    autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                  });
-                }}
+               onClick={() => handleNavigation(product.title)}
               >
                 +
               </button>
