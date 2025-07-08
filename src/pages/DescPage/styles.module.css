@@ -52,6 +52,7 @@
   position: absolute;
   bottom: -30%;
   left: 50%;
+  transform: translateX(-50%);
   color: var(--primary-color);
   background-color: transparent;
   border: 1px solid transparent;
@@ -108,31 +109,43 @@
 }
 
 @media screen and (max-width: 530px) {
-  .more {
-    right: 60%;
+  .btn {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    width: 140px;
+    padding: 5% 0%;
   }
 
-  .btn {
-    right: 42%;
-    width: 60%;
+  .price {
+    text-align: center;
   }
 
   .container {
-    left: 38%;
+    left: 50%;
     top: 7%;
+    text-align: center;
+    width: 79%;
   }
 
-  .right,
-  .desc {
-    width: 120% !important;
+  .title {
+    font-size: 20px;
+    padding-bottom: 12px;
   }
 
   .tags {
-    width: 150%;
+    text-align: center;
+  }
+
+  .right {
+    width: 99% !important;
+  }
+  .more {
+    right: 50%;
+    transform: translateX(50%);
   }
 
   .back {
-    bottom: -130%;
-    left: 60%;
+    bottom: -120%;
   }
 }
