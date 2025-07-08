@@ -2,11 +2,10 @@ import React from 'react';
 import styles from './styles.module.css';
 import { useProducts } from '../../context/ProductContext';
 import type { IProduct } from '../../context/ProductProvider';
-import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
 export const CompProduct = () => {
-  const { products, cart, handleCart } = useProducts();
+  const { products, cart } = useProducts();
   const navigate = useNavigate();
 
   React.useEffect(() => {
@@ -15,15 +14,15 @@ export const CompProduct = () => {
   if (!products) return <div>Loading products...</div>;
 
   const handleNavigation = (itemTitle: string) => {
-    navigate(`/description/${itemTitle}`)
-  }
+    navigate(`/description/${itemTitle}`);
+  };
   return (
     <div className={styles.popular}>
-      <div className={styles.containerImgPopular} >
+      <div className={styles.containerImgPopular}>
         {products
           .filter((product: IProduct) => product.category === 'beauty')
           .map((product: IProduct) => (
-            <div className={styles.image} key={product.id} >
+            <div className={styles.image} key={product.id}>
               <div className={styles.shape}></div>
               <img
                 className={styles.thumbnail}
@@ -35,7 +34,7 @@ export const CompProduct = () => {
 
               <button
                 className={styles.add}
-               onClick={() => handleNavigation(product.title)}
+                onClick={() => handleNavigation(product.title)}
               >
                 +
               </button>

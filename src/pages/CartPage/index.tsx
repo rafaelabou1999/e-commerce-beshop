@@ -39,7 +39,10 @@ export const CartPage = () => {
     setCart((prev) => {
       const updatedCart = prev.map((item) => {
         if (item.id === itemId) {
-          const newQuantity = Math.max((item.quantity ?? 1) + (isPlus ? 1 : -1), 0);
+          const newQuantity = Math.max(
+            (item.quantity ?? 1) + (isPlus ? 1 : -1),
+            0
+          );
           return { ...item, quantity: newQuantity };
         }
         return item;
@@ -89,7 +92,8 @@ export const CartPage = () => {
                 </div>
                 <div className={styles.totalContainer}>
                   <h3 className={styles.total}>
-                    <span className={styles.totalText}>Total:</span> ${total.toFixed(2)}
+                    <span className={styles.totalText}>Total:</span> $
+                    {total.toFixed(2)}
                   </h3>
                 </div>
               </div>
